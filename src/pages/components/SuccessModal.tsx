@@ -7,7 +7,9 @@ import { Box } from "@mui/material";
 import { Button } from "@mui/material";
 
 // import logo from ".././images/typeee-logo.svg"
-import { timeFormatting, cpmToRank, cpmToDiscription } from "../util/util";
+import timeFormatting from "../util/time_formatting";
+import cpmToRank from "../util/cpmToRank";
+import cpmToDiscription from "../util/cpmToDiscription";
 import { Typography } from "@mui/material";
 import Tooltip from "@mui/material/Tooltip";
 

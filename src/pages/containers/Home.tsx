@@ -8,7 +8,7 @@ import Box from "@mui/material/Box";
 import SuccessModal from "../components/SuccessModal";
 import Discription from "../components/Discription";
 import ResetButton from "../components/ResetButton";
-import { timeFormatting } from "../util/util";
+import timeFormatting from "../util/time_formatting";
 import styled from "@emotion/styled";
 
 // import Dictionary from "../util/dictionary";

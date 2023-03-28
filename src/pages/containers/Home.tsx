@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 
-import logo from ".././images/typeee-logo.svg";
+// import logo from ".././images/typeee-logo.svg";
 
 import SuccessModal from "../components/SuccessModal";
 import Discription from "../components/Discription";
@@ -156,7 +156,7 @@ function Home() {
     <p></p>
   ) : (
     <div text-align="center">
-      <Logo src={logo} alt="logo" />
+      {/* <Logo src={logo} alt="logo" /> */}
       <Discription />
       <audio ref={audio} src={audioFile}></audio>
       <InputBox

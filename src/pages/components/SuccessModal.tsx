@@ -1,12 +1,12 @@
 import React from "react";
 import { styled } from '@mui/system';
 import Modal from '@mui/material/Modal';
-import { Backdrop } from "@mui/material";
+// import { Backdrop } from "@mui/material";
 import { Fade } from "@mui/material";
 import { Box } from "@mui/material";
 import { Button } from "@mui/material";
 
-import logo from ".././images/typeee-logo.svg"
+// import logo from ".././images/typeee-logo.svg"
 import { timeFormatting, cpmToRank, cpmToDiscription } from "../util/util";
 import { Typography } from "@mui/material";
 import Tooltip from "@mui/material/Tooltip";
@@ -64,7 +64,7 @@ const SuccessModal = (props: SuccessModalProps) => {
       >
         <Fade in={props.modalOpen}>
           <Paper>
-            <Logo src={logo} alt="logo" />
+            {/* <Logo src={logo} alt="logo" /> */}
             <div id="transition-modal-descrioption">
               <Content>
                 文字数: {result.charLength}e

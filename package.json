@@ -22,5 +22,9 @@
     "react-dom": "18.2.0",
     "react-share": "^4.4.1",
     "typescript": "5.0.2"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^14.0.0"
   }
 }

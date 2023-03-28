@@ -92,6 +92,7 @@ function Home() {
     // let ts = "";
     const num: number = Math.floor(Math.random() * 100);
     let word: string = sentenses[num-1];
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     setCountSentense(countSentense + 1);
     setTypingString(word);
     const filePath: string = "/vocal-file/" + num.toString() + "output.mp3";

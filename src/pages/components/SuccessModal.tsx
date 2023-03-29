@@ -38,22 +38,22 @@ const Content = styled(Typography)({
 });
 
 type SuccessModalProps = {
-  result: {
-    timelimit: number,
-    missCount: number,
-    charLength: number,
-  }
-  modalOpen: boolean
-  modalClose: () => void
-  refreshAll: React.MouseEventHandler<HTMLButtonElement>
+  timelimit: number;
+  missCount: number;
+  countSentense: number;
+  modalOpen: boolean;
+  modalClose: () => void;
+  refreshAll: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 const SuccessModal = (props: SuccessModalProps) => {
-  const result = props.result;
+  const open: boolean = props.modalOpen;
+  const countWord:number = props.missCount;
+  console.log(countWord);
   const cpm: number =
-    result.charLength === 0 || result.timelimit === 0
+    countWord === 0 || props.timelimit === 0
     ? -1
-    : ((result.charLength / result.timelimit) * 1000 * 60);
+    : ((countWord / props.timelimit) * 1000 * 60);
 
   return (
     <div>
@@ -69,13 +69,13 @@ const SuccessModal = (props: SuccessModalProps) => {
             {/* <Logo src={logo} alt="logo" /> */}
             <div id="transition-modal-descrioption">
               <Content>
-                文字数: {result.charLength}e
+                文字数: {countWord}e
                 <br />
-                タイム: {timeFormatting(result.timelimit)}
+                タイム: {timeFormatting(props.timelimit)}
                 <br />
                 精度:{" "}
                 {(
-                  (result.charLength / (result.charLength + result.missCount)) * 100).toFixed(1)
+                  (countWord / (countWord + props.missCount)) * 100).toFixed(1)
                 }
                 %<br />
                 CPM(１分間あたりの入力文字数): {cpm}
@@ -117,10 +117,10 @@ const SuccessModal = (props: SuccessModalProps) => {
                     <TwitterShareButton
                         url="https://shintaro-hirose.github.io/typeee/"
                         title={`typeee!でタイピング速度を計測しました！ ${
-                          result.charLength
-                        }文字, ${timeFormatting(result.timelimit)}秒, 精度 ${(
-                          (result.charLength /
-                            (result.charLength + result.missCount)) *
+                          countWord
+                        }文字, ${timeFormatting(props.timelimit)}秒, 精度 ${(
+                          (countWord /
+                            (countWord + props.missCount)) *
                           100
                         ).toFixed(1)} %, ${cpm} CPM, 評価は "${cpmToRank(
                           cpm

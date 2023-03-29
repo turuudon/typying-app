@@ -70,7 +70,7 @@ const Stat = styled(Typography)({
 
 
 function Home() {
-  const [typingString, setTypingString] = useState("");
+  const [typingString, setTypingString] = useState("start");
   const [loading, setLoading] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMisstype, setIsMisstype] = useState(false);
@@ -79,7 +79,7 @@ function Home() {
   const [finished, setFinished] = useState(false);
   const [started, setStarted] = useState(false);
   const [timeOfTyping, setTimeOfTyping] = useState(0);
-  const [timelimit, setTimelimit] = useState(3);
+  const [timelimit, setTimelimit] = useState(1);
   const [modalOpen, setModalOpen] = useState(false);
   const [refresh, setRefresh] = useState(0);
   const [audioFile, setAudioFile] = useState("");
@@ -92,8 +92,7 @@ function Home() {
     // let ts = "";
     const num: number = Math.floor(Math.random() * 100);
     let word: string = sentenses[num-1];
-    setCountSentense(c => c + 1);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    setCountSentense((prev) => prev + 1);
     setTypingString(word);
     const filePath: string = "/vocal-file/" + num.toString() + "output.mp3";
     setLoading(false);
@@ -193,11 +192,9 @@ function Home() {
         <ResetButton refreshAll={refreshAll} />
       </Box>
       <SuccessModal
-        result={{
-          timelimit,
-          missCount,
-          charLength: countSentense,
-        }}
+        timelimit={timelimit}
+        missCount={missCount}
+        countSentense={countSentense}
         modalOpen={modalOpen}
         modalClose={() => setModalOpen(false)}
         refreshAll={refreshAll}
